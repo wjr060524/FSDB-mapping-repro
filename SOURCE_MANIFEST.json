@@ -1,0 +1,26 @@
+{
+  "source_root": "/data/wangjr/DQAT/pytorch-imagenet",
+  "algorithm_extraction": {
+    "run_r18_ptq_sharing_mapping_search.py": {
+      "sha256": "23832788786f0a3c8937e06533381fdc03488580be13b7dad8ce62741b448cce",
+      "ranges": ["120-131", "313-424", "461-483"]
+    },
+    "run_fsdb_frozen_mag_scaling_imagenet.py": {
+      "sha256": "7d0c5e9a21ca699e02cbc6e9fb8ebfc714297d588089be3441b87b0260ee94c7",
+      "ranges": ["63-87", "286-352", "911-931"]
+    }
+  },
+  "packaging_glue": [
+    "src/fsdb_backend/__init__.py",
+    "src/fsdb_mapping_repro/__init__.py",
+    "tools/build_group_members.py"
+  ],
+  "verbatim_shared_files": {
+    "src/fsdb_backend/quantizer.py": "93a5b376d6834d9ffcf3ff4dc3ba846283a07e7a2195f9df885ab091e55fa7e2",
+    "src/fsdb_backend/qat_quantizer.py": "7f47bc1d20c5e2401eecde0bb4e2b408f89fb0d875657673d89a6a7db544bb16",
+    "src/fsdb_backend/qat_wrapper.py": "73a4adcc40e70afadebe5b7a77ae091b73291fa864dcd4a705f094f77da0a0af",
+    "src/fsdb_backend/qat_frozen_mag.py": "79f109562d9df20ae52d6a830ca3e26d83fd543c0a622393a506e24f2292a6fa",
+    "src/fsdb_backend/qat_mapping_frozen_mag.py": "07e819fa2b2641bb6993548782d5953fbb0bc0a74dd30d52e393b6f94cbb71dd",
+    "src/fsdb_backend/qat_mapping_frozen_mag_general.py": "21b99d37b93697846af30aea2bef7cbccf51db49730b55e9ccc5fcbd76d9f1f0"
+  }
+}

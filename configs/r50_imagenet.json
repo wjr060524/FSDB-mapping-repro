@@ -1,0 +1,45 @@
+{
+  "architecture": "resnet50.tv_in1k",
+  "dataset": "ImageNet-1K train; fixed stratified 90/10 train-core/adaptation-dev; official validation final only",
+  "source_checkpoint": "/data/wangjr/DQAT/pytorch-imagenet/checkpoint/resnet50/resnet50_quant_8b_76.69.pth",
+  "source_checkpoint_sha256": "f000f2fd12a2e717a9ebd3d6252dfee732b8523df7ab1b2916f57ba54abee869",
+  "quant_params_source": "prepared during the historical R50 prepare stage; not included",
+  "historical_group_members": {
+    "e_state_oc": "/data/wangjr/DQAT/pytorch-imagenet/fsdb_reports/fsdb_frozen_mag_mapping_scaling_20261008/phase_c_imagenet_r50/r4_e_state_oc_group_members.pt",
+    "h_error_vector_oc": "/data/wangjr/DQAT/pytorch-imagenet/fsdb_reports/fsdb_frozen_mag_mapping_scaling_20261008/phase_c_imagenet_r50/r16_h_error_vector_oc_group_members.pt"
+  },
+  "branches": {
+    "r4_e_state_oc": {
+      "ratio": 4,
+      "mapping_id": "e_state_oc",
+      "final_top1": 75.554,
+      "final_top5": 92.624,
+      "group_members_sha256": "1cf3ae324403f7e8ade6ebc0316073d9de0d1f1c0b60b1ad70463d259b8e5ec4"
+    },
+    "r16_h_error_vector_oc": {
+      "ratio": 16,
+      "mapping_id": "h_error_vector_oc",
+      "final_top1": 75.260,
+      "final_top5": 92.410,
+      "group_members_sha256": "8328eb23dae27dd8758c0dc1b9b5ca62b2a02310fb404e4c17441b7e71f300d4"
+    }
+  },
+  "epochs": 10,
+  "master_seed": 314159,
+  "split_seed": 20261004,
+  "optimizer": "SGD momentum=0.9 weight_decay=0.0005",
+  "scheduler": "per-batch OneCycleLR max_lr=0.001",
+  "precision": "BF16 train/eval with FP32 loss",
+  "frozen_mag": true,
+  "fixed_scale_zero": true,
+  "fixed_group_membership": true,
+  "dynamic_sign_shift": true,
+  "late_sign_shift_freeze": false,
+  "excluded_scope": "stem, all downsample convolutions, and fc",
+  "selected_layers": [
+    "layer1.0.conv1", "layer1.0.conv2", "layer1.0.conv3", "layer1.1.conv1", "layer1.1.conv2", "layer1.1.conv3", "layer1.2.conv1", "layer1.2.conv2", "layer1.2.conv3",
+    "layer2.0.conv1", "layer2.0.conv2", "layer2.0.conv3", "layer2.1.conv1", "layer2.1.conv2", "layer2.1.conv3", "layer2.2.conv1", "layer2.2.conv2", "layer2.2.conv3", "layer2.3.conv1", "layer2.3.conv2", "layer2.3.conv3",
+    "layer3.0.conv1", "layer3.0.conv2", "layer3.0.conv3", "layer3.1.conv1", "layer3.1.conv2", "layer3.1.conv3", "layer3.2.conv1", "layer3.2.conv2", "layer3.2.conv3", "layer3.3.conv1", "layer3.3.conv2", "layer3.3.conv3", "layer3.4.conv1", "layer3.4.conv2", "layer3.4.conv3", "layer3.5.conv1", "layer3.5.conv2", "layer3.5.conv3",
+    "layer4.0.conv1", "layer4.0.conv2", "layer4.0.conv3", "layer4.1.conv1", "layer4.1.conv2", "layer4.1.conv3", "layer4.2.conv1", "layer4.2.conv2", "layer4.2.conv3"
+  ]
+}
